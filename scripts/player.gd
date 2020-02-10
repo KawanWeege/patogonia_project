@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 		direcao.x -= 1
 	
 	if Input.is_action_pressed("pular") && is_on_floor():
-		print("pulor")
 		_velocidade.y -= forca_de_pulo
 	
 	# Pegar a velocidade, e descartar o y. 
@@ -33,6 +32,7 @@ func _physics_process(delta: float) -> void:
 	
 	lvdir = lvdir.linear_interpolate (velocidade_alvo, accel * delta)
 	
+	# Aplicar velocidade
 	_velocidade.x = lvdir.x
 	_velocidade.y += gravidade
 	
