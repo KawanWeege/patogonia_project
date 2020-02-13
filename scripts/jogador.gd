@@ -1,11 +1,16 @@
 extends KinematicBody2D
 
+export(PackedScene) var arma: PackedScene
 export(float) var velocidade_maxima: float
 export(float) var aceleracao: float
 export(float) var gravidade: float
 export(float) var forca_de_pulo: float
 
 var _velocidade: Vector2
+
+func _ready():
+	$GunPos.add_child(arma.instance())
+
 
 func _physics_process(delta: float) -> void:
 	# Pegar os inputs do jogador
