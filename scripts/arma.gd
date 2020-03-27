@@ -1,18 +1,10 @@
 extends Node2D
 
 export(PackedScene) var tiro_cena: PackedScene
-export(bool) var automatico: bool
 
 onready var posicao_tiro: Position2D = $ShootPos
 onready var timer_tiro: Timer = $ShotDelay
 onready var conteiner_tiro: Node = $Tiros
-
-
-func _physics_process(_delta: float):
-	look_at(get_global_mouse_position())
-	
-	if automatico && Input.is_action_pressed("atirar") || !automatico && Input.is_action_just_pressed("atirar"):
-		atirar()
 
 
 func atirar() -> void:

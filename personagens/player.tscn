@@ -9,11 +9,12 @@ extents = Vector2( 40.0024, 39.4523 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-arma = ExtResource( 3 )
-velocidade_maxima = 300.0
-aceleracao = 5.0
 gravidade = 9.6
-forca_de_pulo = 300.0
+velocidade_maxima = 300.0
+aceleracao = 20.0
+forca_pulo = 200.0
+arma = ExtResource( 3 )
+automatico = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
