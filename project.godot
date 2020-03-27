@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Personagem",
+"language": "GDScript",
+"path": "res://personagens/personagem.gd"
+}, {
 "base": "Area2D",
 "class": "Tiro",
 "language": "GDScript",
 "path": "res://scripts/tiro.gd"
 } ]
 _global_script_class_icons={
+"Personagem": "",
 "Tiro": ""
 }
 
