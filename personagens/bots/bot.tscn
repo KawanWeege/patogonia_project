@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://personagens/bots/maquina_estado.gd" type="Script" id=2]
+[ext_resource path="res://personagens/bots/bot_aliado.gd" type="Script" id=3]
+[ext_resource path="res://armas/gun.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 35, 35 )
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+collision_layer = 2
+script = ExtResource( 3 )
+gravidade = 9.6
+velocidade_maxima = 300.0
+aceleracao = 20.0
+forca_pulo = 200.0
+arma = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="GunPos" type="Position2D" parent="."]
+
+[node name="MaquinaDeEstados" type="Node" parent="."]
+script = ExtResource( 2 )
+estado_atual = "AtacarInimigo"
+
+[node name="DetectorPulo" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorPulo"]
+shape = SubResource( 1 )
+[connection signal="area_entered" from="DetectorPulo" to="." method="_ao_detectar_pulo"]

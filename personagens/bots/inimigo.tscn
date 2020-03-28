@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://personagens/bots/bot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://personagens/bots/atacar_inimigo.gd" type="Script" id=2]
+
+[node name="KinematicBody2D" groups=[
+"ornitorrincos",
+] instance=ExtResource( 1 )]
+collision_layer = 4
+
+[node name="Sprite" parent="." index="1"]
+modulate = Color( 1, 0, 0, 1 )
+
+[node name="AtacarInimigo" type="Node" parent="MaquinaDeEstados" index="0"]
+script = ExtResource( 2 )
+grupo_inimigo = "patos"
+distancia_maxima = 3000.0
+distancia_strafe = 50.0

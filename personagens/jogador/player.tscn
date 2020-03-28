@@ -5,14 +5,18 @@
 [ext_resource path="res://armas/gun.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40.0024, 39.4523 )
+extents = Vector2( 35, 35 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"jogador",
+"patos",
+]]
+collision_layer = 2
 script = ExtResource( 2 )
 gravidade = 9.6
 velocidade_maxima = 300.0
 aceleracao = 20.0
-forca_pulo = 200.0
+forca_pulo = 300.0
 arma = ExtResource( 3 )
 automatico = true
 
